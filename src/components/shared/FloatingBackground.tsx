@@ -15,6 +15,8 @@ interface FloatingIcon {
   duration: number;
   delay: number;
   opacity: number;
+  driftX: number;
+  driftY: number;
 }
 
 function seededRandom(seed: number) {
@@ -24,40 +26,48 @@ function seededRandom(seed: number) {
 
 export function FloatingBackground() {
   const icons = useMemo<FloatingIcon[]>(() => {
-    return Array.from({ length: 18 }, (_, i) => ({
+    return Array.from({ length: 20 }, (_, i) => ({
       id: i,
       Icon: ICONS[i % ICONS.length],
       x: seededRandom(i * 7 + 1) * 100,
       y: seededRandom(i * 13 + 3) * 100,
-      size: 20 + seededRandom(i * 17 + 5) * 16,
+      size: 24 + seededRandom(i * 17 + 5) * 20,
       rotation: seededRandom(i * 23 + 7) * 360,
-      duration: 14 + seededRandom(i * 29 + 11) * 18,
-      delay: seededRandom(i * 31 + 13) * -20,
-      opacity: 0.06 + seededRandom(i * 37 + 17) * 0.08,
+      duration: 18 + seededRandom(i * 29 + 11) * 22,
+      delay: seededRandom(i * 31 + 13) * -25,
+      opacity: 0.08 + seededRandom(i * 37 + 17) * 0.1,
+      driftX: 20 + seededRandom(i * 41 + 19) * 40,
+      driftY: 20 + seededRandom(i * 43 + 21) * 40,
     }));
   }, []);
 
   return (
-    <div className="floating-bg" aria-hidden="true">
-      {icons.map(({ id, Icon, x, y, size, rotation, duration, delay, opacity }) => (
+    <div
+      aria-hidden="true"
+      style={{
+        position: 'fixed',
+        inset: 0,
+        pointerEvents: 'none',
+        overflow: 'hidden',
+        zIndex: 0,
+      }}
+    >
+      {icons.map(({ id, Icon, x, y, size, rotation, duration, delay, opacity, driftX, driftY }) => (
         <div
           key={id}
-          className="floating-icon"
           style={{
+            position: 'absolute',
             left: `${x}%`,
             top: `${y}%`,
-            animationDuration: `${duration}s`,
-            animationDelay: `${delay}s`,
             opacity,
+            animation: `float-${id % 4} ${duration}s ease-in-out ${delay}s infinite`,
           }}
         >
           <Icon
             size={size}
-            style={{
-              transform: `rotate(${rotation}deg)`,
-              color: 'var(--c-text)',
-            }}
+            color="var(--c-text)"
             strokeWidth={1.5}
+            style={{ transform: `rotate(${rotation}deg)` }}
           />
         </div>
       ))}
