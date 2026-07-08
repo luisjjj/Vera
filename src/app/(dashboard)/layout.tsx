@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useAuthStore } from '@/store/authStore';
 import { Sidebar } from '@/components/shared/Sidebar';
-import { FloatingBackground } from '@/components/shared/FloatingBackground';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -37,7 +36,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: 'var(--c-bg)' }}>
-      <FloatingBackground />
       <Sidebar />
       <main className="main-content" style={{ minHeight: '100vh' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto', padding: '24px 16px' }}>

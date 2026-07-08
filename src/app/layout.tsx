@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import { FloatingBackground } from "@/components/shared/FloatingBackground";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light" className={`${inter.variable} h-full`} suppressHydrationWarning>
       <body className="min-h-full antialiased" style={{ margin: 0 }}>
+        <FloatingBackground />
         <Providers>{children}</Providers>
       </body>
     </html>
