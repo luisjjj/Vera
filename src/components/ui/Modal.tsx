@@ -28,9 +28,10 @@ export function Modal({ open, onClose, title, children }: ModalProps) {
         backgroundColor: 'var(--c-surface)', borderRadius: '20px', padding: '24px',
         maxWidth: '440px', width: '100%', boxShadow: '0 24px 48px rgba(0,0,0,0.2)',
         border: '1px solid var(--c-border)', animation: 'fadeIn 0.2s ease',
+        color: 'var(--c-text-on-surface)',
       }}>
         {title && (
-          <h2 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--c-text)', margin: '0 0 16px 0' }}>{title}</h2>
+          <h2 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--c-text-on-surface)', margin: '0 0 16px 0' }}>{title}</h2>
         )}
         {children}
       </div>

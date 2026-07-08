@@ -26,7 +26,7 @@ export function Sidebar() {
         position: 'fixed', top: 0, left: 0, bottom: 0, width: '240px',
         backgroundColor: 'var(--c-surface)', borderRight: '1px solid var(--c-border)',
         flexDirection: 'column', padding: '24px 16px', zIndex: 30,
-        display: 'flex',
+        display: 'flex', color: 'var(--c-text-on-surface)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px', padding: '0 8px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -36,7 +36,7 @@ export function Sidebar() {
             }}>
               <Sparkles size={18} color="#FFFFFF" />
             </div>
-            <span style={{ fontSize: '20px', fontWeight: 700, color: 'var(--c-text)', letterSpacing: '-0.5px' }}>Vera</span>
+            <span style={{ fontSize: '20px', fontWeight: 700, letterSpacing: '-0.5px' }}>Vera</span>
           </div>
           <ThemeToggle />
         </div>
@@ -69,7 +69,7 @@ export function Sidebar() {
           }}>
             <Avatar name={profile.display_name} size="sm" />
             <div style={{ flex: 1, minWidth: 0 }}>
-              <p style={{ fontSize: '14px', fontWeight: 500, color: 'var(--c-text)', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              <p style={{ fontSize: '14px', fontWeight: 500, margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                 {profile.display_name}
               </p>
               <p style={{ fontSize: '12px', color: 'var(--c-text-secondary)', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>

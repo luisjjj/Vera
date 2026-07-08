@@ -62,8 +62,8 @@ export default function HomePage() {
         </h1>
 
         <p style={{
-          fontSize: '18px', color: 'var(--c-text-secondary)', margin: '0 0 40px 0',
-          lineHeight: '1.6', maxWidth: '460px',
+          fontSize: '18px', color: 'var(--c-text)', margin: '0 0 40px 0',
+          lineHeight: '1.6', maxWidth: '460px', opacity: 0.85,
         }}>
           AI-powered weekly content plans tailored to your platforms, niche, and goals.
         </p>
@@ -91,7 +91,7 @@ export default function HomePage() {
 
       <footer style={{
         borderTop: '1px solid var(--c-border)', padding: '24px 32px',
-        textAlign: 'center', fontSize: '13px', color: 'var(--c-text-muted)',
+        textAlign: 'center', fontSize: '13px', color: 'var(--c-text)', opacity: 0.6,
       }}>
         Vera — AI Content Planning Assistant
       </footer>
@@ -104,6 +104,7 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode; titl
     <div style={{
       backgroundColor: 'var(--c-surface)', borderRadius: '16px', padding: '24px',
       border: '1px solid var(--c-border)', transition: 'all 0.2s ease',
+      color: 'var(--c-text-on-surface)',
     }}
     onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--c-border-strong)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
     onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--c-border)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
@@ -114,7 +115,7 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode; titl
       }}>
         {icon}
       </div>
-      <h3 style={{ fontSize: '16px', fontWeight: 600, color: 'var(--c-text)', margin: '0 0 8px 0' }}>{title}</h3>
+      <h3 style={{ fontSize: '16px', fontWeight: 600, margin: '0 0 8px 0' }}>{title}</h3>
       <p style={{ fontSize: '14px', color: 'var(--c-text-secondary)', margin: 0, lineHeight: '1.5' }}>{description}</p>
     </div>
   );

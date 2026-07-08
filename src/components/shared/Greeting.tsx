@@ -17,7 +17,7 @@ export function Greeting({ name }: GreetingProps) {
       <Avatar name={name} size="lg" />
       <div>
         <p style={{ fontSize: '14px', color: 'var(--c-text-secondary)', margin: 0 }}>{greeting}</p>
-        <h1 className="heading-lg" style={{ fontWeight: 700, color: 'var(--c-text)', margin: 0 }}>{name}</h1>
+        <h1 className="heading-lg" style={{ fontWeight: 700, color: 'var(--c-text-on-surface)', margin: 0 }}>{name}</h1>
       </div>
     </div>
   );

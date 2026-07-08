@@ -12,10 +12,11 @@
   --c-surface: #FFF5EE;
   --c-surface-hover: #FFE8D6;
   --c-text: #FFF5EE;
-  --c-text-secondary: rgba(255, 245, 238, 0.7);
-  --c-text-muted: rgba(255, 245, 238, 0.5);
-  --c-border: rgba(255, 245, 238, 0.2);
-  --c-border-strong: rgba(255, 245, 238, 0.35);
+  --c-text-on-surface: #1A1A1A;
+  --c-text-secondary: rgba(26, 26, 26, 0.6);
+  --c-text-muted: rgba(26, 26, 26, 0.4);
+  --c-border: rgba(26, 26, 26, 0.12);
+  --c-border-strong: rgba(26, 26, 26, 0.25);
   --c-success: #10B981;
   --c-warning: #F59E0B;
   --c-error: #EF4444;
@@ -30,6 +31,7 @@
   --c-surface: #141414;
   --c-surface-hover: #1E1E1E;
   --c-text: #FFFFFF;
+  --c-text-on-surface: #FFFFFF;
   --c-text-secondary: rgba(255, 255, 255, 0.65);
   --c-text-muted: rgba(255, 255, 255, 0.4);
   --c-border: rgba(255, 255, 255, 0.1);

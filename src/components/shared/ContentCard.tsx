@@ -35,7 +35,7 @@ export function ContentCard({ title, description, platform, contentType, status,
         <Badge color={platformData?.color}>{platformData?.label || platform}</Badge>
         <Badge color={statusInfo.color} variant="outlined" size="sm">{statusInfo.label}</Badge>
       </div>
-      <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--c-text)', margin: '8px 0 4px 0' }}>{title}</h3>
+      <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--c-text-on-surface)', margin: '8px 0 4px 0' }}>{title}</h3>
       <p style={{ fontSize: '13px', color: 'var(--c-text-secondary)', margin: 0, lineHeight: '1.4' }}>{description}</p>
       <div style={{ marginTop: '10px' }}>
         <Badge color="var(--c-text-secondary)" variant="outlined" size="sm">{contentType}</Badge>

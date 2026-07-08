@@ -35,7 +35,7 @@ export function QuickAction({ icon, label, description, onClick }: QuickActionPr
         {icon}
       </div>
       <div>
-        <p style={{ fontSize: '15px', fontWeight: 600, color: 'var(--c-text)', margin: 0 }}>{label}</p>
+        <p style={{ fontSize: '15px', fontWeight: 600, color: 'var(--c-text-on-surface)', margin: 0 }}>{label}</p>
         <p style={{ fontSize: '13px', color: 'var(--c-text-secondary)', margin: 0 }}>{description}</p>
       </div>
     </button>

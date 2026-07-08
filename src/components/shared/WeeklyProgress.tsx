@@ -11,7 +11,7 @@ export function WeeklyProgress({ completed, total }: WeeklyProgressProps) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ fontSize: '14px', fontWeight: 500, color: 'var(--c-text)' }}>Weekly Progress</span>
+        <span style={{ fontSize: '14px', fontWeight: 500, color: 'var(--c-text-on-surface)' }}>Weekly Progress</span>
         <span style={{ fontSize: '14px', color: 'var(--c-text-secondary)' }}>{completed}/{total}</span>
       </div>
       <div style={{
