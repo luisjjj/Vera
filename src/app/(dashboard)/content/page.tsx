@@ -125,14 +125,14 @@ export default function ContentPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <label style={{ fontSize: '14px', fontWeight: 500, color: 'var(--c-text-on-surface)' }}>Platform</label>
             <select value={form.platform} onChange={(e) => setForm(p => ({ ...p, platform: e.target.value as Platform }))}
-              style={{ padding: '12px 16px', borderRadius: '12px', border: '1.5px solid var(--c-border-strong)', backgroundColor: '#FFFFFF', color: 'var(--c-text-on-surface)', fontSize: '16px', outline: 'none', cursor: 'pointer' }}>
+              style={{ padding: '12px 16px', borderRadius: '12px', border: '1.5px solid var(--c-border-strong)', backgroundColor: 'var(--c-surface-hover)', color: 'var(--c-text-on-surface)', fontSize: '16px', outline: 'none', cursor: 'pointer' }}>
               {PLATFORMS.map(p => <option key={p.id} value={p.id}>{p.label}</option>)}
             </select>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <label style={{ fontSize: '14px', fontWeight: 500, color: 'var(--c-text-on-surface)' }}>Content Type</label>
             <select value={form.content_type} onChange={(e) => setForm(p => ({ ...p, content_type: e.target.value as ContentType }))}
-              style={{ padding: '12px 16px', borderRadius: '12px', border: '1.5px solid var(--c-border-strong)', backgroundColor: '#FFFFFF', color: 'var(--c-text-on-surface)', fontSize: '16px', outline: 'none', cursor: 'pointer' }}>
+              style={{ padding: '12px 16px', borderRadius: '12px', border: '1.5px solid var(--c-border-strong)', backgroundColor: 'var(--c-surface-hover)', color: 'var(--c-text-on-surface)', fontSize: '16px', outline: 'none', cursor: 'pointer' }}>
               <option value="reel">Reel</option><option value="story">Story</option><option value="post">Post</option>
               <option value="video">Video</option><option value="carousel">Carousel</option><option value="thread">Thread</option>
               <option value="article">Article</option>

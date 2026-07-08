@@ -175,14 +175,14 @@ export default function PlanPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <label style={{ fontSize: '14px', fontWeight: 500, color: 'var(--c-text-on-surface)' }}>Day</label>
             <select value={addItem.day} onChange={(e) => setAddItem(prev => ({ ...prev, day: e.target.value }))}
-              style={{ padding: '12px 16px', borderRadius: '12px', border: '1.5px solid var(--c-border-strong)', backgroundColor: '#FFFFFF', color: 'var(--c-text-on-surface)', fontSize: '16px', outline: 'none', cursor: 'pointer' }}>
+              style={{ padding: '12px 16px', borderRadius: '12px', border: '1.5px solid var(--c-border-strong)', backgroundColor: 'var(--c-surface-hover)', color: 'var(--c-text-on-surface)', fontSize: '16px', outline: 'none', cursor: 'pointer' }}>
               {DAYS.map(d => <option key={d.id} value={d.id}>{d.label}</option>)}
             </select>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <label style={{ fontSize: '14px', fontWeight: 500, color: 'var(--c-text-on-surface)' }}>Platform</label>
             <select value={addItem.platform} onChange={(e) => setAddItem(prev => ({ ...prev, platform: e.target.value as Platform }))}
-              style={{ padding: '12px 16px', borderRadius: '12px', border: '1.5px solid var(--c-border-strong)', backgroundColor: '#FFFFFF', color: 'var(--c-text-on-surface)', fontSize: '16px', outline: 'none', cursor: 'pointer' }}>
+              style={{ padding: '12px 16px', borderRadius: '12px', border: '1.5px solid var(--c-border-strong)', backgroundColor: 'var(--c-surface-hover)', color: 'var(--c-text-on-surface)', fontSize: '16px', outline: 'none', cursor: 'pointer' }}>
               {PLATFORMS.map(p => <option key={p.id} value={p.id}>{p.label}</option>)}
             </select>
           </div>

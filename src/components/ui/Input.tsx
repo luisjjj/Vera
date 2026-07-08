@@ -23,7 +23,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             padding: '12px 16px',
             borderRadius: `${BORDER_RADIUS.md}px`,
             border: `1.5px solid ${error ? 'var(--c-error)' : 'var(--c-border-strong)'}`,
-            backgroundColor: '#FFFFFF',
+            backgroundColor: 'var(--c-surface-hover)',
             color: 'var(--c-text-on-surface)',
             fontSize: '16px',
             outline: 'none',
