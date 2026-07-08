@@ -1,26 +1,188 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --c-primary: #F4845F;
+  --c-primary-hover: #E8734A;
+  --c-primary-subtle: rgba(244, 132, 95, 0.12);
+  --c-bg: #F4845F;
+  --c-surface: #FFF5EE;
+  --c-surface-hover: #FFE8D6;
+  --c-text: #FFF5EE;
+  --c-text-secondary: rgba(255, 245, 238, 0.7);
+  --c-text-muted: rgba(255, 245, 238, 0.5);
+  --c-border: rgba(255, 245, 238, 0.2);
+  --c-border-strong: rgba(255, 245, 238, 0.35);
+  --c-success: #10B981;
+  --c-warning: #F59E0B;
+  --c-error: #EF4444;
+  --c-shadow: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] {
+  --c-primary: #F4845F;
+  --c-primary-hover: #FF9A76;
+  --c-primary-subtle: rgba(244, 132, 95, 0.15);
+  --c-bg: #0A0A0A;
+  --c-surface: #141414;
+  --c-surface-hover: #1E1E1E;
+  --c-text: #FFFFFF;
+  --c-text-secondary: rgba(255, 255, 255, 0.65);
+  --c-text-muted: rgba(255, 255, 255, 0.4);
+  --c-border: rgba(255, 255, 255, 0.1);
+  --c-border-strong: rgba(255, 255, 255, 0.2);
+  --c-success: #10B981;
+  --c-warning: #F59E0B;
+  --c-error: #EF4444;
+  --c-shadow: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease forwards;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-border-strong);
+  border-radius: 3px;
+}
+
+/* Desktop sidebar */
+.sidebar-desktop {
+  display: none;
+}
+.sidebar-bottomnav {
+  display: flex;
+}
+.main-content {
+  padding-bottom: 80px;
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  .sidebar-desktop {
+    display: flex;
+  }
+  .sidebar-bottomnav {
+    display: none;
+  }
+  .main-content {
+    padding-bottom: 0;
+    margin-left: 240px;
+  }
+}
+
+/* Responsive grid helpers */
+.grid-plan {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .grid-plan { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .grid-plan { grid-template-columns: repeat(3, 1fr); }
+}
+
+.grid-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .grid-content { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .grid-content { grid-template-columns: repeat(3, 1fr); }
+}
+
+.grid-calendar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 1024px) {
+  .grid-calendar { grid-template-columns: 2fr 1fr; }
+}
+
+.grid-profile {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 1024px) {
+  .grid-profile { grid-template-columns: 2fr 1fr; }
+}
+
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 640px) {
+  .grid-2col { grid-template-columns: repeat(2, 1fr); }
+}
+
+.grid-quick-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .grid-quick-actions { grid-template-columns: repeat(2, 1fr); }
+}
+
+.heading-lg {
+  font-size: 24px;
+}
+@media (min-width: 768px) {
+  .heading-lg { font-size: 32px; }
 }
