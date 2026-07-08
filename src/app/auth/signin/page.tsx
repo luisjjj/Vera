@@ -26,7 +26,7 @@ export default function SignInPage() {
   return (
     <div style={{ minHeight: '100vh', backgroundColor: 'var(--c-bg)', display: 'flex', flexDirection: 'column' }}>
       <div style={{ padding: '16px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Link href="/" style={{ color: 'var(--c-text-secondary)', textDecoration: 'none' }}><ArrowLeft size={20} /></Link>
+        <Link href="/" style={{ color: 'var(--c-text)', textDecoration: 'none', opacity: 0.8 }}><ArrowLeft size={20} /></Link>
         <ThemeToggle />
       </div>
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '24px', maxWidth: '400px', margin: '0 auto', width: '100%' }}>
@@ -39,7 +39,7 @@ export default function SignInPage() {
             <Sparkles size={22} color="#FFFFFF" />
           </div>
           <h1 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--c-text)', margin: '0 0 8px 0' }}>Welcome back</h1>
-          <p style={{ fontSize: '15px', color: 'var(--c-text-secondary)', margin: 0 }}>Sign in to continue planning</p>
+          <p style={{ fontSize: '15px', color: 'var(--c-text)', margin: 0, opacity: 0.8 }}>Sign in to continue planning</p>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <Input label="Email" type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -47,9 +47,9 @@ export default function SignInPage() {
           {error && <p style={{ fontSize: '13px', color: 'var(--c-error)', margin: 0 }}>{error}</p>}
           <Button fullWidth size="lg" onClick={handleSignIn} loading={loading}>Sign In</Button>
         </div>
-        <p style={{ textAlign: 'center', fontSize: '14px', color: 'var(--c-text-secondary)', marginTop: '24px' }}>
+        <p style={{ textAlign: 'center', fontSize: '14px', color: 'var(--c-text)', marginTop: '24px', opacity: 0.7 }}>
           Don&apos;t have an account?{' '}
-          <Link href="/auth/signup" style={{ color: 'var(--c-primary)', textDecoration: 'none', fontWeight: 500 }}>Sign up</Link>
+          <Link href="/auth/signup" style={{ color: 'var(--c-primary)', textDecoration: 'none', fontWeight: 500, opacity: 1 }}>Sign up</Link>
         </p>
       </div>
     </div>

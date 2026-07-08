@@ -22,7 +22,7 @@ export function DayCard({ day, date, items, isToday }: DayCardProps) {
         padding: '12px 16px', borderBottom: '1px solid var(--c-border)',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       }}>
-        <span style={{ fontSize: '14px', fontWeight: 600, color: isToday ? 'var(--c-primary)' : 'var(--c-text)' }}>{day}</span>
+        <span style={{ fontSize: '14px', fontWeight: 600, color: isToday ? 'var(--c-primary)' : 'var(--c-text-on-surface)' }}>{day}</span>
         <span style={{ fontSize: '12px', color: 'var(--c-text-secondary)' }}>{date}</span>
       </div>
       <div style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -46,7 +46,7 @@ export function DayCard({ day, date, items, isToday }: DayCardProps) {
                 }} />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <p style={{
-                    fontSize: '13px', fontWeight: 500, color: 'var(--c-text)', margin: 0,
+                    fontSize: '13px', fontWeight: 500, color: 'var(--c-text-on-surface)', margin: 0,
                     overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
                     textDecoration: item.status === 'completed' ? 'line-through' : 'none',
                   }}>{item.title}</p>

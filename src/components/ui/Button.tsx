@@ -10,36 +10,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
 }
 
-const variantStyles: Record<string, React.CSSProperties> = {
-  primary: {
-    backgroundColor: 'var(--c-primary)',
-    color: '#FFFFFF',
-    border: 'none',
-  },
-  secondary: {
-    backgroundColor: 'transparent',
-    color: 'var(--c-text)',
-    border: '1.5px solid var(--c-border-strong)',
-  },
-  ghost: {
-    backgroundColor: 'transparent',
-    color: 'var(--c-text-secondary)',
-    border: 'none',
-  },
-  danger: {
-    backgroundColor: 'var(--c-error)',
-    color: '#FFFFFF',
-    border: 'none',
-  },
-};
-
-const hoverStyles: Record<string, React.CSSProperties> = {
-  primary: { backgroundColor: 'var(--c-primary-hover)' },
-  secondary: { backgroundColor: 'var(--c-surface-hover)' },
-  ghost: { backgroundColor: 'var(--c-surface-hover)' },
-  danger: { backgroundColor: '#DC2626' },
-};
-
 const sizeStyles: Record<string, React.CSSProperties> = {
   sm: { padding: '8px 16px', fontSize: '14px', borderRadius: '12px' },
   md: { padding: '12px 24px', fontSize: '16px', borderRadius: '12px' },
@@ -56,31 +26,62 @@ export function Button({
   style,
   ...props
 }: ButtonProps) {
+  const base: React.CSSProperties = {
+    ...sizeStyles[size],
+    width: fullWidth ? '100%' : undefined,
+    fontWeight: 600,
+    cursor: disabled || loading ? 'not-allowed' : 'pointer',
+    opacity: disabled ? 0.5 : 1,
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '8px',
+    transition: 'all 0.2s ease',
+    ...style,
+  };
+
+  const variants: Record<string, React.CSSProperties> = {
+    primary: {
+      backgroundColor: 'var(--c-btn)',
+      color: '#FFFFFF',
+      border: 'none',
+    },
+    secondary: {
+      backgroundColor: 'var(--c-surface)',
+      color: 'var(--c-text-on-surface)',
+      border: '1.5px solid var(--c-border-strong)',
+    },
+    ghost: {
+      backgroundColor: 'transparent',
+      color: 'var(--c-text-on-surface)',
+      border: 'none',
+    },
+    danger: {
+      backgroundColor: 'var(--c-error)',
+      color: '#FFFFFF',
+      border: 'none',
+    },
+  };
+
+  const hoverBg: Record<string, string> = {
+    primary: 'var(--c-btn-hover)',
+    secondary: 'var(--c-surface-hover)',
+    ghost: 'var(--c-surface-hover)',
+    danger: '#DC2626',
+  };
+
   return (
     <button
       disabled={disabled || loading}
-      style={{
-        ...variantStyles[variant],
-        ...sizeStyles[size],
-        width: fullWidth ? '100%' : undefined,
-        fontWeight: 500,
-        cursor: disabled || loading ? 'not-allowed' : 'pointer',
-        opacity: disabled ? 0.5 : 1,
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        transition: 'all 0.2s ease',
-        ...style,
-      }}
+      style={{ ...base, ...variants[variant] }}
       onMouseEnter={(e) => {
         if (!disabled && !loading) {
-          Object.assign(e.currentTarget.style, hoverStyles[variant]);
+          e.currentTarget.style.backgroundColor = hoverBg[variant];
         }
       }}
       onMouseLeave={(e) => {
         if (!disabled && !loading) {
-          Object.assign(e.currentTarget.style, variantStyles[variant]);
+          e.currentTarget.style.backgroundColor = variants[variant].backgroundColor as string;
         }
       }}
       {...props}

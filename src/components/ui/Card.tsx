@@ -23,6 +23,7 @@ export function Card({ children, padding = '16px', hover = false, onClick, style
         border: '1px solid var(--c-border)',
         transition: 'all 0.2s ease',
         cursor: onClick ? 'pointer' : 'default',
+        color: 'var(--c-text-on-surface)',
         ...style,
       }}
       onMouseEnter={(e) => {
