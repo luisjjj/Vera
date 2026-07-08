@@ -42,7 +42,7 @@ export function Button({
 
   const variants: Record<string, React.CSSProperties> = {
     primary: {
-      backgroundColor: 'var(--c-primary)',
+      backgroundColor: 'var(--c-btn)',
       color: '#FFFFFF',
       border: 'none',
     },
@@ -64,7 +64,7 @@ export function Button({
   };
 
   const hoverBg: Record<string, string> = {
-    primary: 'var(--c-primary-hover)',
+    primary: 'var(--c-btn-hover)',
     secondary: 'var(--c-surface-hover)',
     ghost: 'var(--c-surface-hover)',
     danger: '#DC2626',
