@@ -8,7 +8,8 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { BORDER_RADIUS, PLATFORMS } from '@/constants/theme';
 import { Platform } from '@/types/models';
-import { ArrowLeft, ArrowRight, Check, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Check, FileText, Sparkles } from 'lucide-react';
+import { SiYoutube, SiTiktok, SiInstagram, SiX } from '@icons-pack/react-simple-icons';
 import { supabase } from '@/services/supabase';
 
 const NICHE_OPTIONS = [
@@ -24,6 +25,21 @@ const GOAL_OPTIONS = [
   'Grow audience', 'Increase engagement', 'Build community',
   'Drive sales', 'Establish authority', 'Monetize content',
 ];
+
+const LinkedInIcon = ({ size = 24, color = 'currentColor' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+  </svg>
+);
+
+const PLATFORM_ICONS: Record<string, React.ComponentType<{ size?: number; color?: string }>> = {
+  youtube: SiYoutube,
+  tiktok: SiTiktok,
+  instagram: SiInstagram,
+  twitter: SiX,
+  linkedin: LinkedInIcon,
+  blog: FileText,
+};
 
 export default function OnboardingPage() {
   const router = useRouter();
@@ -115,8 +131,12 @@ export default function OnboardingPage() {
                         width: '36px', height: '36px', borderRadius: `${BORDER_RADIUS.sm}px`,
                         backgroundColor: `color-mix(in srgb, ${p.color} 15%, transparent)`,
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        color: p.color, fontSize: '18px', fontWeight: 700,
-                      }}>{p.label[0]}</div>
+                      }}>
+                        {(() => {
+                          const Icon = PLATFORM_ICONS[p.id];
+                          return Icon ? <Icon size={18} color={p.color} /> : null;
+                        })()}
+                      </div>
                       <span style={{ flex: 1, fontSize: '15px', fontWeight: 500, color: 'var(--c-text-on-surface)' }}>{p.label}</span>
                       {selected && (
                         <div style={{ width: '20px', height: '20px', borderRadius: '50%', backgroundColor: p.color, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
